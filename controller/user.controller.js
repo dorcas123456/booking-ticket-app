@@ -4,9 +4,9 @@ const User = require('../models/user.models');
 //generate JWToken
 const generateToken = (user, secret, expiresIn) => {
    return jwt.sign(
-      {email :user.email, userId : user._Id},
+      {email: user.email, userId: user._id},
       secret,
-      {expiresIn}
+      { expiresIn }
    )
 }
 

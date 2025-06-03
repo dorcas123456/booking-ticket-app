@@ -1,4 +1,4 @@
-const Ticket = require('../models/ticket.models');//from models
+const Ticket = require("../models/ticket.models");
  
 exports.purchase = async (req, res, next) => {
     try{
@@ -6,9 +6,9 @@ exports.purchase = async (req, res, next) => {
             eventTitle,
             eventDate,
             venue,
-            seatNumber ,
-            ticketPrice ,
-            purchaseNumber ,
+            seatNumber,
+            ticketPrice,
+            purchaseNumber,
             status
 } = req.body;
 
@@ -20,20 +20,21 @@ if (existingTicket) {
 }
 
 //create a new ticket
-const ticket = new Ticket ({
+const ticket = new Ticket({
             eventTitle,
             eventDate,
             venue,
-            seatNumber ,
-            ticketPrice ,
-            purchaseNumber ,
-            status
+            seatNumber,
+            ticketPrice,
+            purchaseNumber,
+            status,
 });
 
 const result = await ticket.save();
 
 res.status(201).json({
-    message : "purchased successfully", result
+    message: "purchased successfully", 
+    result
 });
     } catch (error) {
         res.status(500).json({ error: error.message });
